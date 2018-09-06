@@ -19,7 +19,7 @@ typedef struct      s_moves
 }                   t_moves;
 
 t_moves	*ft_best(t_moves *moves);
-t_lemin ft_init(t_lemin map);
+t_lemin ft_init();
 void        ft_count(t_moves *tmp);
 void		ft_add_node(t_moves **head, char *path);
 void        ft_rate(t_moves *path);

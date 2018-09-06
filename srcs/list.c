@@ -26,7 +26,8 @@ void        ft_count(t_moves *tmp)
     int     i;
     char    **split;
 
-    split = ft_strsplit(tmp->path, ' ');
+    i = 0;
+	split = ft_strsplit(tmp->path, ' ');
     while (split[i])
     {
         i++;

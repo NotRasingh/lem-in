@@ -14,13 +14,14 @@ int ft_findchar(char c, char *str)
     }
     return (0);
 }
-t_lemin ft_init(t_lemin map)
+t_lemin ft_init(void)
 {
     char *line;
     int ret;
     int i;
+	t_lemin	map;
 
-    i = 0;
+	i = 0;
     line = NULL;
     map.links = malloc(sizeof(char *) * 2000);
     ret = get_next_line(0, &line);
@@ -53,7 +54,7 @@ int main(void)
 {
     t_lemin map;
 
-    map = ft_init(map);
+    map = ft_init();
     ft_findpath(map);
     return (0);
 }
