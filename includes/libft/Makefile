@@ -6,7 +6,7 @@
 #    By: rasingh <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/30 08:38:55 by rasingh           #+#    #+#              #
-#    Updated: 2018/06/22 13:18:06 by rasingh          ###   ########.fr        #
+#    Updated: 2018/09/10 13:34:05 by rasingh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ ft_toupper \
 ft_putendl_fd \
 ft_putnbr_fd \
 ft_intlen \
+ft_putarr \
 
 SRCC = $(addsuffix .c, $(FUNCS))
 SRCO = $(addsuffix .o, $(FUNCS))
@@ -73,14 +74,14 @@ SRCO = $(addsuffix .o, $(FUNCS))
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCC)
-	ar rc $(NAME) $(SRCO)
-	ranlib $(NAME)
+	@$(CC) $(CFLAGS) $(SRCC)
+	@ar rc $(NAME) $(SRCO)
+	@ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(SRCO)
+	@rm -f $(SRCO)
 
 fclean: clean 
-	/bin/rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
