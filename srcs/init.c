@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:56:47 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/10 15:16:12 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/11 15:04:14 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_getnumber(void)
 		if (ft_intlen(ants) == (int)ft_strlen(line))
 			return (ants);
 		ft_putstr(line);
+		free(line);
 	}
 	return (0);
 }
@@ -56,9 +57,11 @@ char	*ft_start(void)
 				ft_putendl(line);
 				i = ft_findchar(' ', line);
 				str = ft_strsub(line, 0, i);
+				free(line);
 				return (str);
 			}
 		}
+		free(line);
 	}
 	return (NULL);
 }
@@ -85,9 +88,11 @@ char	*ft_end(void)
 				ft_putendl(line);
 				i = ft_findchar(' ', line);
 				str = ft_strsub(line, 0, i);
+				free(line);
 				return (str);
 			}
 		}
+		free(line);
 	}
 	return (NULL);
 }
@@ -109,8 +114,9 @@ char	**ft_links(void)
 		if (!ret)
 			break ;
 		if (ft_findchar('-', line))
-			links[i++] = line;
+			links[i++] = ft_strdup(line);
 		ft_putendl(line);
+		free(line);
 	}
 	return (i > 0 ? links : NULL);
 }

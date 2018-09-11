@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 10:11:58 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/10 13:34:18 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/11 15:03:37 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+void	ft_freesplit(void **split);
 void    ft_sort_int_tab(int *tab, unsigned int size);
 void	ft_bzero(void *s, size_t n);
 int		ft_atoi(const char *str);

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_freesplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/12 10:31:54 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/11 13:12:09 by rasingh          ###   ########.fr       */
+/*   Created: 2018/09/11 15:03:05 by rasingh           #+#    #+#             */
+/*   Updated: 2018/09/11 15:03:11 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 8
-# include "libft/libft.h"
+#include "libft.h"
 
-int	get_next_line(const int fd, char **line);
+void			ft_freesplit(void **split)
+{
+	int n;
 
-#endif
+	n = 0;
+	while (split[n] != NULL)
+	{
+		free(split[n]);
+		n++;
+	}
+	free(split);
+}

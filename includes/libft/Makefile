@@ -6,7 +6,7 @@
 #    By: rasingh <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/30 08:38:55 by rasingh           #+#    #+#              #
-#    Updated: 2018/09/10 13:34:05 by rasingh          ###   ########.fr        #
+#    Updated: 2018/09/11 15:04:05 by rasingh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ ft_putendl_fd \
 ft_putnbr_fd \
 ft_intlen \
 ft_putarr \
+ft_freesplit \
 
 SRCC = $(addsuffix .c, $(FUNCS))
 SRCO = $(addsuffix .o, $(FUNCS))

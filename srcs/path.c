@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:55:45 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/10 14:58:26 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/11 15:08:25 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ void ft_possible(char *begin, t_lemin map, t_moves **head)
 		}
 		j++;
 	}
-	//if(ft_lastroom(begin) == map.end)
+	free((void*)last);
+	free((void*)start);
 	ft_add_node(head, path);
 }
 
@@ -112,6 +113,7 @@ void ft_findpath(t_lemin map)
 		ft_possible(map.links[i], map, &head);
 		i++;
 	}
+	ft_freesplit((void**)map.links);
 	ft_rate(head);
 	best = ft_best(head);
 	ft_print(best, map);

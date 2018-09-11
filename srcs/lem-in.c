@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:38:25 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/10 15:13:43 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/11 15:06:26 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ t_lemin ft_init(void)
 		ft_putstr_fd("ERROR: NO ROOMS LINKED\n", 2);
 		exit(0);
 	}
-	printf("ANTS: %d\n",map.ants);
+/*	printf("ANTS: %d\n",map.ants);
 	printf("START : <%s>\n END : <%s>\n", map.start, map.end);
 	ft_putendl("BEGIN");
 	ft_putarr(map.links);
 	ft_putendl("END");
-/*    ret = get_next_line(0, &line);
+    ret = get_next_line(0, &line);
     if (ft_strlen(line) == 1 && ft_isdigit(line[0]))
         map.ants = ft_atoi(line);
     while (ret)
@@ -93,5 +93,6 @@ int main(void)
 
     map = ft_init();
     ft_findpath(map);
+	sleep(50);
     return (0);
 }
