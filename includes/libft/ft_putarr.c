@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 13:11:44 by rasingh           #+#    #+#             */
-/*   Updated: 2018/08/14 09:55:07 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/14 10:19:46 by rasingh          ###   ########.fr       */
 /*   Updated: 2018/08/09 14:04:38 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -20,11 +20,11 @@ void	ft_putarr(char **str)
 	i = 0;
 	if (!str)
 		return ;
-	ft_putstr_fd("\n\n\n\n\n", 2);
 	while (str[i])
 	{
 		ft_putstr_fd(str[i], 2);
 		ft_putchar_fd('\n', 2);
 		i++;
 	}
+	ft_putstr_fd("\n\n\n\n\n", 2);
 }

@@ -6,12 +6,12 @@
 #    By: rasingh <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/23 11:19:30 by rasingh           #+#    #+#              #
-#    Updated: 2018/09/10 14:26:58 by rasingh          ###   ########.fr        #
+#    Updated: 2018/09/14 12:20:33 by rasingh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
-SOURCES = srcs/lem-in.c srcs/list.c srcs/path.c srcs/init.c
+SOURCES = srcs/main.c srcs/path.c srcs/init.c
 INCLUDES = includes/libft/libft.a includes/gnl/get_next_line.c
 
 $(NAME):

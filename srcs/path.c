@@ -6,16 +6,16 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:55:45 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/11 15:08:25 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/14 12:57:14 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
 
-char    *ft_firstroom(char *begin)
+char	*ft_firstroom(char *begin)
 {
-	int     i;
-	char    *tmp;
+	int		i;
+	char	*tmp;
 
 	tmp = (char*)malloc(sizeof(char*) * 10);
 	i = 0;
@@ -27,17 +27,17 @@ char    *ft_firstroom(char *begin)
 	return (tmp);
 }
 
-char    *ft_lastroom(const char *end)
+char	*ft_lastroom(const char *end)
 {
 	int		i;
 	int		j;
-	char    *tmp;
+	char	*tmp;
 
 	tmp = (char*)malloc(sizeof(char*) * 10);
 	j = 0;
-	i = 0;
-	while (end[i] != '-')
-		i++;
+	i = ft_strlen(end) - 1;
+	while (end[i] != '-' && end[i])
+		i--;
 	i++;
 	while (end[i])
 	{
@@ -48,73 +48,67 @@ char    *ft_lastroom(const char *end)
 	return (tmp);
 }
 
-void ft_print(t_moves *best, t_lemin map)
+void	ft_possiblecont(char **begin, t_lemin map, char **path)
 {
-	int		i;
-	int		j;
-	char	**rooms;
-
-	rooms = ft_strsplit(best->path, ' ');
-	i = 1;
-	while (i <= map.ants)
-	{
-		j = 0;
-		while (rooms[j])
-		{
-			ft_putchar('L');
-			ft_putnbr(i);
-			ft_putchar('-');
-			ft_putendl(ft_lastroom(rooms[j]));
-			j++;
-		}
-		i++;
-	}
-}
-
-void ft_possible(char *begin, t_lemin map, t_moves **head)
-{
-	char	*path;
 	int		j;
 	char	*last;
 	char	*start;
 
-	start = ft_firstroom(begin);
-	if (ft_strcmp(start, map.start) != 0)
-		return;
-	path = begin;
 	j = 0;
 	while (map.links[j])
 	{
-		last = ft_lastroom(begin) ;
+		last = ft_lastroom(*begin);
 		start = ft_firstroom(map.links[j]);
 		if (ft_strcmp(last, start) == 0)
 		{
-			path = ft_strjoin(path, " ");
-			path = ft_strjoin(path, map.links[j]);
-			begin = map.links[j];
+			*path = ft_strjoin(*path, " ");
+			*path = ft_strjoin(*path, map.links[j]);
+			*begin = map.links[j];
+			return ;
 		}
+		free((void*)last);
+		free((void*)start);
 		j++;
 	}
-	free((void*)last);
-	free((void*)start);
-	ft_add_node(head, path);
 }
 
-void ft_findpath(t_lemin map)
+void	ft_possible(char *begin, t_lemin map)
 {
-	t_moves *head;
-	t_moves *best;
+	char	*path;
+	int		j;
+	char	*start;
+	char	*end;
+	int		i;
 
-	head = NULL;
+	i = 0;
+	start = ft_firstroom(begin);
+	if (ft_strcmp(start, map.start) != 0)
+		return ;
+	path = begin;
+	while (map.links[i])
+	{
+		j = 0;
+		ft_possiblecont(&begin, map, &path);
+		end = ft_lastroom(path);
+		if (ft_strcmp(end, map.end) == 0)
+		{
+			ft_print(path, map);
+			exit(0);
+		}
+		i++;
+	}
+}
+
+void	ft_findpath(t_lemin map)
+{
 	int i;
+
 	i = 0;
 	while (map.links[i])
 	{
-		ft_possible(map.links[i], map, &head);
+		ft_possible(map.links[i], map);
 		i++;
 	}
 	ft_freesplit((void**)map.links);
-	ft_rate(head);
-	best = ft_best(head);
-	ft_print(best, map);
+	ft_putstr_fd("Error : No Possible Path\n", 2);
 }
