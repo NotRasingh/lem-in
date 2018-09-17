@@ -6,14 +6,14 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 10:31:54 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/11 13:12:09 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/17 10:14:57 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 8
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 int	get_next_line(const int fd, char **line);
 

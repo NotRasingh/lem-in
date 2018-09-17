@@ -6,35 +6,34 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:38:25 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/14 12:55:16 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/17 10:13:46 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
 
-
-void    ft_print(char *path, t_lemin map)
+void	ft_print(char *path, t_lemin map)
 {
-    int     i;
-    int     j;
-    char    **rooms;
+	int		i;
+	int		j;
+	char	**rooms;
 
-    ft_putarr(map.text);
-    rooms = ft_strsplit(path, ' ');
-    i = 1;
-    while (i <= map.ants)
-    {
-        j = 0;
-        while (rooms[j])
-        {
-            ft_putchar('L');
-            ft_putnbr(i);
-            ft_putchar('-');
-            ft_putendl(ft_lastroom(rooms[j]));
-            j++;
-        }
-        i++;
-    }
+	ft_putarr(map.text);
+	rooms = ft_strsplit(path, ' ');
+	i = 1;
+	while (i <= map.ants)
+	{
+		j = 0;
+		while (rooms[j])
+		{
+			ft_putchar('L');
+			ft_putnbr(i);
+			ft_putchar('-');
+			ft_putendl(ft_lastroom(rooms[j]));
+			j++;
+		}
+		i++;
+	}
 }
 
 int		ft_findchar(char c, char *str)
