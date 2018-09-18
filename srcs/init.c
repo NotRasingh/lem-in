@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:56:47 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/14 12:27:09 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/18 10:28:14 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,8 @@ t_lemin		ft_getnumber(t_lemin map)
 
 	ret = 1;
 	line = NULL;
-	while (ret)
+	while ((ret = get_next_line(0, &line)))
 	{
-		ret = get_next_line(0, &line);
-		if (!ret)
-			break ;
 		map = ft_addline(line, map);
 		map.ants = ft_atoi(line);
 		if (ft_intlen(map.ants) == (int)ft_strlen(line))
@@ -52,11 +49,9 @@ t_lemin		ft_start(t_lemin map)
 	int		i;
 
 	i = 0;
-	ret = 1;
 	line = NULL;
-	while (ret)
+	while ((ret = get_next_line(0, &line)))
 	{
-		ret = get_next_line(0, &line);
 		map = ft_addline(line, map);
 		if (ft_strcmp(line, "##start") == 0)
 		{
@@ -81,11 +76,9 @@ t_lemin		ft_end(t_lemin map)
 	int		i;
 
 	i = 1;
-	ret = 1;
 	line = NULL;
-	while (ret)
+	while ((ret = get_next_line(0, &line)))
 	{
-		ret = get_next_line(0, &line);
 		map = ft_addline(line, map);
 		if (ft_strcmp(line, "##end") == 0)
 		{
@@ -110,12 +103,10 @@ t_lemin		ft_links(t_lemin map)
 	int		i;
 
 	line = NULL;
-	ret = 1;
 	i = 0;
 	map.links = malloc(sizeof(char*) * 2000);
-	while (ret)
+	while ((ret = get_next_line(0, &line)))
 	{
-		ret = get_next_line(0, &line);
 		if (!ret)
 			break ;
 		if (ft_findchar('-', line))

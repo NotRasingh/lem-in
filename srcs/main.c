@@ -6,7 +6,7 @@
 /*   By: rasingh <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:38:25 by rasingh           #+#    #+#             */
-/*   Updated: 2018/09/17 10:13:46 by rasingh          ###   ########.fr       */
+/*   Updated: 2018/09/18 10:22:56 by rasingh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_lemin	ft_init(void)
 
 	map.text = (char**)malloc(2000);
 	map = ft_getnumber(map);
-	if (map.ants == 0)
+	if (map.ants <= 0)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(0);

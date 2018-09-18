@@ -1,0 +1,8 @@
+8
+##start
+hi 6 7
+no 9 8
+##end
+yse 6 5
+hi-no
+no-yse
